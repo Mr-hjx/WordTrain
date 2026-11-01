@@ -1,4 +1,4 @@
-# 单词小火车 · uni-app 版
+# WordTrain · 单词小火车（uni-app 版）
 
 给学龄前小朋友的英语单词练习工具。家长把课堂单词录进来，孩子通过 4 种趣味题型练习，答对得宝石、攒宝石点亮奖牌。
 
@@ -51,7 +51,7 @@ npm run type-check      # TypeScript 全量类型检查
 ## 目录结构
 
 ```
-kids-english-uniapp/
+WordTrain/
 ├─ src/
 │  ├─ types/index.ts            # 全部业务类型
 │  ├─ utils/                    # 纯逻辑层（不依赖框架，可单测）
