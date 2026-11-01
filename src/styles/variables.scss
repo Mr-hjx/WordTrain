@@ -1,0 +1,58 @@
+/**
+ * 设计变量
+ *
+ * ⚠️ 双声明 `page, :root`：小程序端不支持 `:root`，H5 端不支持 `page`，
+ *    两者都写才能双端一致。
+ *
+ * 尺寸单位刻意使用 px（不用 rpx）：整套布局是按 iPhone SE 375×667
+ * 精调出的「一屏铺满、不出滚动条」方案，rpx 会按 750 基准缩放从而破坏版式。
+ */
+
+/* 主色 */
+$primary: #7c5cff;
+$primary-dark: #5b3fd6;
+$primary-light: #a58cff;
+
+/* 辅助色 */
+$mint: #2ed3b7;
+$sky: #4da6ff;
+$sun: #ffb109;
+$coral: #ff6b81;
+$pink: #ff6b9d;
+$orange: #ff9f43;
+
+/* 中性色 */
+$text: #2c2a3a;
+$text-sub: #6b6880;
+$text-muted: #9e9bb0;
+$line: #eae7f5;
+$bg: #f6f4ff;
+$card: #ffffff;
+
+/* 圆角 */
+$r-sm: 10px;
+$r-md: 16px;
+$r-lg: 22px;
+$r-xl: 28px;
+$r-full: 999px;
+
+/* 阴影 */
+$sh-sm: 0 2px 8px rgba(124, 92, 255, 0.08);
+$sh-md: 0 6px 20px rgba(124, 92, 255, 0.12);
+$sh-lg: 0 14px 40px rgba(124, 92, 255, 0.18);
+
+/* 字号 */
+$fs-xs: 12px;
+$fs-sm: 14px;
+$fs-md: 16px;
+$fs-lg: 19px;
+$fs-xl: 23px;
+$fs-2xl: 28px;
+$fs-3xl: 34px;
+
+/* 字体：统一标准雅黑，不用卡通字体 */
+$font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB',
+  -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+
+/* 兼容旧引用 */
+$font-kid: $font-family;

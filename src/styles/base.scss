@@ -1,0 +1,277 @@
+/**
+ * 全局基础样式
+ *
+ * ⚠️ CSS 变量必须 `page, :root` 双声明：
+ *    小程序端只有 `page` 生效，H5 端只有 `:root` 生效。
+ *
+ * 尺寸用 px（见 variables.scss 注释）。
+ */
+
+page,
+:root {
+  --primary: #7c5cff;
+  --primary-dark: #5b3fd6;
+  --primary-light: #ede8ff;
+  --mint: #2ed3b7;
+  --mint-light: #e0fbf5;
+  --sun: #ffc442;
+  --sun-light: #fff6e0;
+  --coral: #ff6b81;
+  --coral-light: #ffe9ed;
+  --sky: #4da6ff;
+  --sky-light: #e6f2ff;
+  --ink: #2b2540;
+  --ink-2: #6b6480;
+  --ink-3: #a9a4bc;
+  --line: #edebf5;
+  --bg: #f5f3ff;
+  --card: #ffffff;
+
+  /* 统一标准雅黑，不用卡通字体 */
+  --font-kid: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB',
+    -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-txt: var(--font-kid);
+}
+
+page,
+:root {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-kid);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+view,
+text,
+button,
+input,
+textarea,
+scroll-view,
+image {
+  box-sizing: border-box;
+  font-family: var(--font-kid);
+}
+
+/* ---------------- 通用卡片 ---------------- */
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 4px 16px rgba(124, 92, 255, 0.08);
+}
+
+/* ---------------- 通用按钮 ---------------- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  border-radius: 26px;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn:active {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #8f73ff 0%, #6b4dff 100%);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(107, 77, 255, 0.28);
+}
+
+.btn-mint {
+  background: linear-gradient(135deg, #4be0c4 0%, #1cc3a4 100%);
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(28, 195, 164, 0.28);
+}
+
+.btn-sun {
+  background: linear-gradient(135deg, #ffd469 0%, #ffb109 100%);
+  color: #7a4b00;
+  box-shadow: 0 6px 14px rgba(255, 177, 9, 0.28);
+}
+
+.btn-ghost {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary-light);
+}
+
+.btn[disabled],
+.btn.disabled {
+  opacity: 0.45;
+}
+
+/* ---------------- 文字 ---------------- */
+.title-xl {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.title-lg {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sub {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.muted {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+/* ---------------- flex 工具类 ---------------- */
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.row-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* ---------------- 页面内边距 ---------------- */
+.page-pad {
+  padding: 12px 14px 30px;
+}
+
+/* 文本截断 */
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ---------------- 滚动容器（首页/我的等允许滚动的页面用） ---------------- */
+.scroll-y {
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+/* ---------------- 一屏铺满的页面根节点 ----------------
+ *
+ * ⚠️ 必须用 100% 而不是 100vh：
+ *   uni-app H5 端会在 uni-page-head（导航栏，44px）之下放 uni-page-wrapper，
+ *   它只占「剩余高度」。若页面根节点用 100vh(=整个窗口高)，就会多出
+ *   一个导航栏的高度（44px）导致整页出现滚动条。
+ *   小程序端 uni-page-body / page 本身就是满高，100% 同样正确。
+ */
+.page-fullscreen {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ---------------- H5 导航栏压矮 ----------------
+ *
+ * uni-app H5 默认导航栏 44px 高、标题 30px/16px，视觉上偏空。
+ * 压矮为 40px + 标题 26px/15px，更紧凑。
+ * 注意：
+ * - uni-page-head 是 fixed 定位，uni-placeholder 占位会自动跟随 head 实际高度
+ * - 小程序端此样式不生效（scoped 到 H5），小程序原生导航栏由系统控制
+ */
+/* #ifdef H5 */
+.uni-page-head {
+  height: 38px !important;
+  height: calc(38px + constant(safe-area-inset-top)) !important;
+  height: calc(38px + env(safe-area-inset-top)) !important;
+  padding: 3px 3px !important;
+  padding-top: calc(3px + constant(safe-area-inset-top)) !important;
+  padding-top: calc(3px + env(safe-area-inset-top)) !important;
+
+  .uni-page-head-hd,
+  .uni-page-head-bd,
+  .uni-page-head-ft {
+    top: 3px !important;
+  }
+
+  .uni-page-head__title {
+    line-height: 32px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* 占位同步压矮（uni-page-head 固定，占位由 .uni-placeholder 撑起） */
+.uni-placeholder {
+  height: 38px !important;
+  height: calc(38px + constant(safe-area-inset-top)) !important;
+  height: calc(38px + env(safe-area-inset-top)) !important;
+}
+/* #endif */
+
+/* ---------------- H5 底部 tabbar 字号 ----------------
+ *
+ * uni-app H5 默认 label 字号 10px、整条高度 50px，对小朋友偏小。
+ * 字号放大到 18px，同时把整条高度加高到 62px、图标放大，
+ * 并同步占位元素高度，避免页面底部被遮住或留白。
+ * 小程序端原生 tabbar 不受此样式影响（由系统渲染）。
+ */
+/* #ifdef H5 */
+.uni-tabbar .uni-tabbar__label {
+  font-size: 18px !important;
+  line-height: 22px !important;
+  margin-top: 2px !important;
+}
+
+.uni-tabbar .uni-tabbar__item {
+  padding: 6px 0 8px !important;
+  box-sizing: border-box !important;
+}
+
+.uni-tabbar .uni-tabbar__icon {
+  width: 26px !important;
+  height: 26px !important;
+  margin-top: 0 !important;
+}
+
+.uni-tabbar .uni-tabbar__icon img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* tabbar 自身高度 + 占位高度同步 */
+.uni-tabbar-bottom {
+  height: 62px !important;
+  height: calc(62px + constant(safe-area-inset-bottom)) !important;
+  height: calc(62px + env(safe-area-inset-bottom)) !important;
+}
+
+.uni-tabbar ~ .uni-placeholder {
+  height: 62px !important;
+}
+/* #endif */

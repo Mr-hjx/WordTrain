@@ -1,0 +1,86 @@
+{
+  "name": "单词小火车",
+  "appid": "",
+  "description": "幼儿英语每日趣味练习",
+  "versionName": "1.0.0",
+  "versionCode": "100",
+  "transformPx": false,
+
+  "app-plus": {
+    "usingComponents": true,
+    "nvueStyleCompiler": "uni-app",
+    "compilerVersion": 3,
+    "splashscreen": {
+      "alwaysShowBeforeRender": true,
+      "waiting": true,
+      "autoclose": true,
+      "delay": 0
+    },
+    "modules": {},
+    "distribute": {
+      "android": {
+        "permissions": [
+          "<uses-permission android:name=\"android.permission.INTERNET\"/>"
+        ]
+      },
+      "ios": {},
+      "sdkConfigs": {}
+    }
+  },
+
+  "quickapp": {},
+
+  "mp-weixin": {
+    "appid": "touristappid",
+    "setting": {
+      "urlCheck": false,
+      "es6": true,
+      "minified": true,
+      "postcss": true
+    },
+    "usingComponents": true,
+    "lazyCodeLoading": "requiredComponents",
+    "plugins": {
+      "WechatSI": {
+        "version": "0.3.5",
+        "provider": "wx069ba97219f66d99"
+      }
+    },
+    "requiredPrivateInfos": [],
+    "permission": {}
+  },
+
+  "mp-alipay": {
+    "usingComponents": true
+  },
+
+  "mp-baidu": {
+    "usingComponents": true
+  },
+
+  "mp-toutiao": {
+    "usingComponents": true
+  },
+
+  "uniStatistics": {
+    "enable": false
+  },
+
+  "vueVersion": "3",
+
+  "h5": {
+    "router": {
+      "mode": "hash",
+      "base": "./"
+    },
+    "title": "单词小火车",
+    "devServer": {
+      "https": false
+    },
+    "optimization": {
+      "treeShaking": {
+        "enable": true
+      }
+    }
+  }
+}
