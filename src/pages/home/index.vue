@@ -247,7 +247,7 @@ function modeClass(m: string) {
 .tc-tip {
   display: block;
   margin-top: 3px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-2);
 }
 
@@ -281,7 +281,7 @@ function modeClass(m: string) {
 
 .tcs-label {
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -308,7 +308,7 @@ function modeClass(m: string) {
 .tcf-text {
   display: block;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--sun-ink);
 }
@@ -348,7 +348,7 @@ function modeClass(m: string) {
 }
 
 .wchip-en {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--primary-dark);
 }
@@ -398,7 +398,7 @@ function modeClass(m: string) {
 .qcard-sub {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -422,7 +422,7 @@ function modeClass(m: string) {
 }
 
 .sec-more {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -441,7 +441,7 @@ function modeClass(m: string) {
 
 .eb-text {
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-3);
   text-align: center;
 }
@@ -469,7 +469,7 @@ function modeClass(m: string) {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -503,7 +503,7 @@ function modeClass(m: string) {
 .rec-time {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -520,7 +520,7 @@ function modeClass(m: string) {
 }
 
 .rg-icon {
-  font-size: 13px;
+  font-size: 14px;
   margin-left: 3px;
 }
 
@@ -539,7 +539,7 @@ function modeClass(m: string) {
 }
 
 .bg-date {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--ink);
 }
@@ -549,13 +549,13 @@ function modeClass(m: string) {
   padding: 1px 6px;
   background: var(--primary);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 6px;
 }
 
 .bg-count {
   margin-left: auto;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -569,7 +569,7 @@ function modeClass(m: string) {
   padding: 3px 9px;
   background: var(--card-2);
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-2);
 }
 

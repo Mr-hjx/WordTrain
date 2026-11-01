@@ -130,7 +130,7 @@ function ok() {
 
 .cd-content {
   margin-top: 7px;
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--ink-2, var(--ink-2));
   text-align: center;
   line-height: 1.65;

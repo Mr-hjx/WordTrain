@@ -259,13 +259,13 @@ onLoad(() => {
 }
 
 .bt-text {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--ink-2);
 }
 
 .bt-arrow {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -315,7 +315,7 @@ onLoad(() => {
 }
 
 .sec-clear {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--coral-ink);
   padding: 4px 8px;
 }
@@ -335,7 +335,7 @@ onLoad(() => {
 
 .eb-text {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-3);
   text-align: center;
 }
@@ -378,7 +378,7 @@ onLoad(() => {
 .wi-zh {
   display: block;
   margin-top: 1px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -391,7 +391,7 @@ onLoad(() => {
   margin-left: 8px;
   background: var(--coral-light);
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--coral-ink);
   border: none;
 }

@@ -183,7 +183,7 @@ defineExpose({ bumpTo })
 }
 
 .mp-text {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;

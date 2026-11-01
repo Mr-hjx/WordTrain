@@ -335,7 +335,7 @@ onLoad(() => {
 
 .hs-label {
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -414,12 +414,12 @@ onLoad(() => {
 .mc-desc {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
 .mc-tag {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 999px;
@@ -478,7 +478,7 @@ onLoad(() => {
 .pc-tip {
   display: block;
   margin-top: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -530,12 +530,12 @@ onLoad(() => {
 .wt-sub {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
 .wt-go {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--primary);
   flex-shrink: 0;

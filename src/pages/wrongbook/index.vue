@@ -212,7 +212,7 @@ onShow(() => {
 
 .eb-text {
   margin-top: 6px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -259,7 +259,7 @@ onShow(() => {
   padding: 1px 7px;
   background: var(--coral-light);
   color: var(--coral-ink);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   border-radius: 999px;
 }
@@ -267,7 +267,7 @@ onShow(() => {
 .wi-zh {
   display: block;
   margin-top: 2px;
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -281,7 +281,7 @@ onShow(() => {
 .wi-speak,
 .wi-del {
   padding: 5px 7px;
-  font-size: 13px;
+  font-size: 14px;
   border-radius: 9px;
   background: var(--card-2);
 }
@@ -300,7 +300,7 @@ onShow(() => {
 
 .tip-title {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--ink);
   margin-bottom: 7px;
@@ -308,7 +308,7 @@ onShow(() => {
 
 .tip-line {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-2);
   line-height: 1.9;
 }
@@ -341,7 +341,7 @@ onShow(() => {
 
 .foot-clear {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 </style>

@@ -265,7 +265,7 @@ function doReset() {
 
 .pf-slogan {
   margin-top: 4px;
-  font-size: 12.5px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.82);
 }
 
@@ -295,7 +295,7 @@ function doReset() {
 
 .pfs-label {
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.78);
 }
 
@@ -311,7 +311,7 @@ function doReset() {
 }
 
 .group-title {
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--ink-3);
   padding: 0 4px 8px;
@@ -372,7 +372,7 @@ function doReset() {
 .cell-value {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -383,7 +383,7 @@ function doReset() {
   margin-right: 6px;
   background: var(--coral);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   border-radius: 999px;
   text-align: center;
@@ -408,7 +408,7 @@ function doReset() {
   display: block;
   margin-top: 22px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 

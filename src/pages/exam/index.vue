@@ -277,7 +277,7 @@ onShow(() => {
 
 .gc-title {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--sun-ink);
   font-weight: 700;
 }
@@ -307,14 +307,14 @@ onShow(() => {
 }
 
 .gcd-text {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--sun-ink);
 }
 
 .gcd-raw {
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--sun-ink);
 }
 
@@ -349,12 +349,12 @@ onShow(() => {
 .tc-sub {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
 .tc-go {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--primary);
 }
@@ -402,7 +402,7 @@ onShow(() => {
 
 .ic-sub {
   margin-top: 5px;
-  font-size: 12.5px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.82);
   text-align: center;
 }
@@ -426,7 +426,7 @@ onShow(() => {
   text-align: center;
   padding: 2px 0;
   border-radius: 7px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   flex-shrink: 0;
 }
@@ -446,7 +446,7 @@ onShow(() => {
 
 .icr-text {
   margin-left: 10px;
-  font-size: 12.5px;
+  font-size: 14px;
   color: #fff;
   font-weight: 600;
 }
@@ -482,7 +482,7 @@ onShow(() => {
 
 .stb-label {
   margin-top: 3px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
   text-align: center;
 }
@@ -504,7 +504,7 @@ onShow(() => {
   display: block;
   margin-top: 9px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -572,7 +572,7 @@ onShow(() => {
 }
 
 .his-total {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -592,7 +592,7 @@ onShow(() => {
 .hi-time {
   display: block;
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -609,7 +609,7 @@ onShow(() => {
 }
 
 .hig-icon {
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 3px;
 }
 
@@ -626,7 +626,7 @@ onShow(() => {
 
 .eb-text {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 

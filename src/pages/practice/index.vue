@@ -403,7 +403,7 @@ onUnload(() => {
 }
 
 .pp-dot-inner {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -420,7 +420,7 @@ onUnload(() => {
 }
 
 .pp-count {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -435,12 +435,12 @@ onUnload(() => {
 }
 
 .ppc-icon {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .ppc-num {
   margin-left: 2px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   color: #fff;
 }
@@ -466,14 +466,14 @@ onUnload(() => {
   padding: 3px 10px;
   background: var(--primary-light);
   color: var(--primary-dark);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   border-radius: 999px;
 }
 
 .mode-pill {
   padding: 3px 10px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   border-radius: 999px;
 }
@@ -579,7 +579,7 @@ onUnload(() => {
   position: absolute;
   margin-left: 74px;
   margin-top: -18px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--mint-ink);
   font-weight: 800;
 }
@@ -636,7 +636,7 @@ onUnload(() => {
   display: block;
   margin-top: 5px;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--ink-3);
   flex-shrink: 0;
 }
@@ -807,7 +807,7 @@ onUnload(() => {
   border-radius: 8px;
   background: var(--primary-soft);
   color: var(--primary-dark);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   text-align: center;
   line-height: 26px;

@@ -169,7 +169,7 @@ onShow(() => {
   display: block;
   margin-top: 5px;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.6;
 }
@@ -202,14 +202,14 @@ onShow(() => {
 }
 
 .msb-total {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .msb-label {
   margin-top: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -316,7 +316,7 @@ onShow(() => {
 
 .cell-name {
   margin-top: 6px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--ink-2);
   text-align: center;
@@ -347,7 +347,7 @@ onShow(() => {
 
 .cell-time {
   margin-top: 5px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-3);
 }
 
@@ -361,7 +361,7 @@ onShow(() => {
 
 .mt-text {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--ink);
   margin-bottom: 7px;
@@ -369,7 +369,7 @@ onShow(() => {
 
 .mt-line {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--ink-2);
   line-height: 1.9;
 }
@@ -431,14 +431,14 @@ onShow(() => {
   padding: 2px 9px;
   background: var(--primary-light);
   color: var(--primary-dark);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   border-radius: 999px;
 }
 
 .modal-desc {
   margin-top: 10px;
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--ink-2);
   text-align: center;
   line-height: 1.6;
