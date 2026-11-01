@@ -27,7 +27,7 @@ const { visible, currentImg, praiseText, combo, images } = usePraise()
   justify-content: center;
   /* 不拦截点击：答对后孩子还要继续操作 */
   pointer-events: none;
-  background: rgba(43, 37, 64, 0.06);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .praise-box {
@@ -36,8 +36,8 @@ const { visible, currentImg, praiseText, combo, images } = usePraise()
   align-items: center;
   padding: 14px 22px 16px;
   border-radius: 24px;
-  background: linear-gradient(160deg, #fffef8 0%, #fff6e0 100%);
-  box-shadow: 0 12px 44px rgba(124, 92, 255, 0.28);
+  background: linear-gradient(160deg, #fffef8 0%, var(--sun-light) 100%);
+  box-shadow: var(--sh-1);
   border: 3px solid #ffe08a;
   max-width: 78%;
 }
@@ -52,7 +52,7 @@ const { visible, currentImg, praiseText, combo, images } = usePraise()
   margin-top: 6px;
   font-size: 21px;
   font-weight: 800;
-  color: #b8740a;
+  color: var(--sun-ink);
   letter-spacing: 1px;
   text-align: center;
 }
@@ -61,6 +61,6 @@ const { visible, currentImg, praiseText, combo, images } = usePraise()
   margin-top: 4px;
   font-size: 14px;
   font-weight: 700;
-  color: #ff6b81;
+  color: var(--coral);
 }
 </style>

@@ -37,7 +37,7 @@
         <view class="group-title">学习</view>
 
         <view class="cell" @tap="goWrongbook">
-          <view class="cell-icon" style="background: #ffe9ed">📕</view>
+          <view class="cell-icon" style="background: var(--coral-light)">📕</view>
           <view class="cell-body">
             <text class="cell-title">我的错题本</text>
             <text class="cell-value">{{ wrongCount ? `${wrongCount} 个待巩固` : '暂无错题' }}</text>
@@ -47,7 +47,7 @@
         </view>
 
         <view class="cell" @tap="goMedals">
-          <view class="cell-icon" style="background: #fff6e0">🏅</view>
+          <view class="cell-icon" style="background: var(--sun-light)">🏅</view>
           <view class="cell-body">
             <text class="cell-title">我的奖牌墙</text>
             <text class="cell-value">小 {{ medalStats.smallGot }}/{{ medalStats.smallTotal }} · 大 {{ medalStats.bigGot }}/{{ medalStats.bigTotal }}</text>
@@ -56,7 +56,7 @@
         </view>
 
         <view class="cell" @tap="switchExam">
-          <view class="cell-icon" style="background: #e0fbf5">📝</view>
+          <view class="cell-icon" style="background: var(--mint-light)">📝</view>
           <view class="cell-body">
             <text class="cell-title">英语小测验</text>
             <text class="cell-value">已考 {{ examStats.times }} 次 · 最好 {{ examStats.best }} 分</text>
@@ -65,7 +65,7 @@
         </view>
 
         <view class="cell" @tap="goInput">
-          <view class="cell-icon" style="background: #eef0ff">✍️</view>
+          <view class="cell-icon" style="background: var(--primary-soft)">✍️</view>
           <view class="cell-body">
             <text class="cell-title">录入单词</text>
             <text class="cell-value">共 {{ totalWords }} 个单词</text>
@@ -79,7 +79,7 @@
         <view class="group-title">设置</view>
 
         <view class="cell">
-          <view class="cell-icon" style="background: #f0edfa">🔊</view>
+          <view class="cell-icon" style="background: var(--primary-soft)">🔊</view>
           <view class="cell-body">
             <text class="cell-title">语音朗读</text>
             <text class="cell-value">听力题自动朗读单词</text>
@@ -87,13 +87,13 @@
           <switch
             class="cell-switch"
             :checked="setting.voice"
-            color="#7C5CFF"
+            color="#9B7DFF"
             @change="onVoiceChange"
           />
         </view>
 
         <view class="cell">
-          <view class="cell-icon" style="background: #f0edfa">✨</view>
+          <view class="cell-icon" style="background: var(--primary-soft)">✨</view>
           <view class="cell-body">
             <text class="cell-title">音效反馈</text>
             <text class="cell-value">答对时播放提示音</text>
@@ -101,7 +101,7 @@
           <switch
             class="cell-switch"
             :checked="setting.sound"
-            color="#7C5CFF"
+            color="#9B7DFF"
             @change="onSoundChange"
           />
         </view>
@@ -112,7 +112,7 @@
         <view class="group-title">关于</view>
 
         <view class="cell" @tap="showAbout">
-          <view class="cell-icon" style="background: #f0edfa">ℹ️</view>
+          <view class="cell-icon" style="background: var(--primary-soft)">ℹ️</view>
           <view class="cell-body">
             <text class="cell-title">关于单词小火车</text>
             <text class="cell-value">幼儿英语每日趣味练习 · v1.0.0</text>
@@ -121,7 +121,7 @@
         </view>
 
         <view class="cell" @tap="confirmReset">
-          <view class="cell-icon" style="background: #ffe9ed">🧹</view>
+          <view class="cell-icon" style="background: var(--coral-light)">🧹</view>
           <view class="cell-body">
             <text class="cell-title cell-danger">清空学习数据</text>
             <text class="cell-value">宝石、奖牌、错题本全部重置</text>
@@ -230,13 +230,13 @@ function doReset() {
 /* ================= 头像区 ================= */
 .profile {
   margin-top: 16px;
-  background: linear-gradient(150deg, #8f73ff 0%, #6b4dff 100%);
+  background: var(--grad-brand);
   border-radius: 22px;
   padding: 22px 18px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(107, 77, 255, 0.24);
+  box-shadow: var(--sh-accent);
 }
 
 .avatar-ring {
@@ -321,9 +321,9 @@ function doReset() {
 .cell {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--card);
   padding: 13px 14px;
-  border-bottom: 1px solid #f6f4ff;
+  border-bottom: 1px solid var(--card-2);
 }
 
 .cell-group > .cell:first-of-type {
@@ -338,7 +338,7 @@ function doReset() {
 }
 
 .cell:active {
-  background: #faf9ff;
+  background: var(--card-2);
 }
 
 .cell-icon {
@@ -366,7 +366,7 @@ function doReset() {
 }
 
 .cell-title.cell-danger {
-  color: #d94b64;
+  color: var(--coral-ink);
 }
 
 .cell-value {
@@ -381,7 +381,7 @@ function doReset() {
   height: 20px;
   padding: 0 6px;
   margin-right: 6px;
-  background: #ff6b81;
+  background: var(--coral);
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -393,7 +393,7 @@ function doReset() {
 
 .cell-arrow {
   font-size: 19px;
-  color: #cfc9e2;
+  color: var(--ink-3);
   flex-shrink: 0;
   line-height: 1;
 }

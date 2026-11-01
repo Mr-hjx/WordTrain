@@ -163,7 +163,7 @@ defineExpose({ bumpTo })
 }
 
 .dark .medal-progress {
-  background: #f2effc;
+  background: var(--card-2);
 }
 
 .mp-emoji {
@@ -206,11 +206,11 @@ defineExpose({ bumpTo })
 }
 
 .light .mp-bar-wrap {
-  background: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .dark .mp-bar-wrap {
-  background: #e2dcf7;
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .mp-bar {

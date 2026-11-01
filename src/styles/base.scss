@@ -5,27 +5,80 @@
  *    小程序端只有 `page` 生效，H5 端只有 `:root` 生效。
  *
  * 尺寸用 px（见 variables.scss 注释）。
+ *
+ * ── 主题说明 ──
+ * 本文件为**暗色主题**的唯一令牌来源（single source of truth）。
+ * 页面样式一律引用 var(--xxx)，禁止再写死色值，
+ * 否则换肤时会漏改、产生视觉碎片（design debt）。
  */
 
 page,
 :root {
-  --primary: #7c5cff;
-  --primary-dark: #5b3fd6;
-  --primary-light: #ede8ff;
-  --mint: #2ed3b7;
-  --mint-light: #e0fbf5;
+  /* ═══ 表面层 Surface ═══ */
+  --bg: #12101e; /* 页面底 */
+  --bg-deep: #0c0a15; /* 更深的凹陷区（输入框、进度槽） */
+  --card: #1c1930; /* 卡片 */
+  --card-2: #241f3c; /* 卡内嵌套块 */
+  --card-3: #2d2750; /* 按下 / 选中态 */
+
+  /* ═══ 描边 Border ═══
+   * 暗色下靠「1px 描边 + 黑影」建立层次，
+   * 紫光投影在白底成立、在深底会发灰，故整体弃用。 */
+  --line: #2e2949;
+  --line-strong: #3d3660;
+  --card-line: rgba(255, 255, 255, 0.06);
+
+  /* ═══ 文字 Text ═══
+   * 三级灰阶全部按 WCAG AA(4.5:1) 在 --card 上校准：
+   *   --ink    ≈ 15.2:1
+   *   --ink-2  ≈  8.4:1
+   *   --ink-3  ≈  5.0:1 */
+  --ink: #f3f1fb;
+  --ink-2: #b8b2ce;
+  --ink-3: #8c86a6;
+  --ink-on-accent: #14111f; /* 亮色块上的深色字 */
+
+  /* ═══ 品牌色 Brand ═══ */
+  --primary: #9b7dff; /* 深底上提亮 12%，保证 6:1 */
+  --primary-ink: #b39cff; /* 品牌色文字 */
+  --primary-dark: #b39cff; /* 兼容旧引用（原「浅底深字」→ 现「深底亮字」） */
+  --primary-light: #2a2350; /* 品牌色浅底 tint */
+  --primary-soft: #221d3d; /* 更浅一档的 tint */
+
+  /* ═══ 语义色 Semantic ═══
+   * 每个语义色三件套：主色 / 浅底 tint / tint 上的文字色 */
+  --mint: #3edfc0;
+  --mint-light: #123b33;
+  --mint-ink: #52e8cd;
   --sun: #ffc442;
-  --sun-light: #fff6e0;
-  --coral: #ff6b81;
-  --coral-light: #ffe9ed;
-  --sky: #4da6ff;
-  --sky-light: #e6f2ff;
-  --ink: #2b2540;
-  --ink-2: #6b6480;
-  --ink-3: #a9a4bc;
-  --line: #edebf5;
-  --bg: #f5f3ff;
-  --card: #ffffff;
+  --sun-light: #3b2e12;
+  --sun-ink: #ffd27a;
+  --coral: #ff7e93;
+  --coral-light: #3d2028;
+  --coral-ink: #ffa3b3;
+  --sky: #5fb0ff;
+  --sky-light: #16293f;
+  --sky-ink: #8ac7ff;
+
+  /* ═══ 阴影 Elevation ═══ */
+  --sh-1: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --sh-2: 0 6px 18px rgba(0, 0, 0, 0.5);
+  --sh-3: 0 14px 36px rgba(0, 0, 0, 0.6);
+  --sh-accent: 0 6px 16px rgba(124, 92, 255, 0.42);
+
+  /* ═══ 品牌渐变 ═══
+   * 亮紫 #8f73ff 在暗底上会「发光刺眼」，
+   * 顶部大块 hero 统一压深到 #6b4fdd → #4a2fa8：
+   * 白字对比 5.5:1，仍是品牌紫，只是不再抢戏。 */
+  --grad-brand: linear-gradient(150deg, #6b4fdd 0%, #4a2fa8 100%);
+  --grad-brand-soft: linear-gradient(
+    135deg,
+    rgba(124, 92, 255, 0.26) 0%,
+    rgba(124, 92, 255, 0.03) 100%
+  );
+
+  /* ═══ 遮罩 ═══ */
+  --mask: rgba(8, 6, 14, 0.72);
 
   /* 统一标准雅黑，不用卡通字体 */
   --font-kid: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB',
@@ -43,6 +96,16 @@ page,
   -webkit-font-smoothing: antialiased;
 }
 
+/* H5 根节点透传，避免切页瞬间闪白 */
+/* #ifdef H5 */
+html,
+body,
+uni-page-body {
+  background: var(--bg) !important;
+  color: var(--ink);
+}
+/* #endif */
+
 view,
 text,
 button,
@@ -54,12 +117,30 @@ image {
   font-family: var(--font-kid);
 }
 
+/* ---------------- 输入控件 ----------------
+ * H5 默认 placeholder 是 #808080，在暗底上只有 ~3.4:1，提亮到 --ink-3。
+ * 小程序端 placeholder 由 <input placeholder-style> 控制。
+ */
+/* #ifdef H5 */
+input::placeholder,
+textarea::placeholder {
+  color: var(--ink-3);
+  opacity: 1;
+}
+
+::selection {
+  background: rgba(155, 125, 255, 0.32);
+  color: var(--ink);
+}
+/* #endif */
+
 /* ---------------- 通用卡片 ---------------- */
 .card {
   background: var(--card);
+  border: 1px solid var(--card-line);
   border-radius: 20px;
   padding: 18px;
-  box-shadow: 0 4px 16px rgba(124, 92, 255, 0.08);
+  box-shadow: var(--sh-1);
 }
 
 /* ---------------- 通用按钮 ---------------- */
@@ -86,27 +167,27 @@ image {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #8f73ff 0%, #6b4dff 100%);
+  background: linear-gradient(135deg, #a184ff 0%, #7a5bff 100%);
   color: #fff;
-  box-shadow: 0 6px 14px rgba(107, 77, 255, 0.28);
+  box-shadow: var(--sh-accent);
 }
 
 .btn-mint {
-  background: linear-gradient(135deg, #4be0c4 0%, #1cc3a4 100%);
-  color: #fff;
-  box-shadow: 0 6px 14px rgba(28, 195, 164, 0.28);
+  background: linear-gradient(135deg, #4be0c4 0%, #21c9a9 100%);
+  color: #06231d;
+  box-shadow: 0 6px 16px rgba(46, 211, 183, 0.3);
 }
 
 .btn-sun {
   background: linear-gradient(135deg, #ffd469 0%, #ffb109 100%);
-  color: #7a4b00;
-  box-shadow: 0 6px 14px rgba(255, 177, 9, 0.28);
+  color: #3d2600;
+  box-shadow: 0 6px 16px rgba(255, 177, 9, 0.26);
 }
 
 .btn-ghost {
-  background: #fff;
-  color: var(--primary);
-  border: 2px solid var(--primary-light);
+  background: var(--card-2);
+  color: var(--primary-ink);
+  border: 2px solid rgba(155, 125, 255, 0.34);
 }
 
 .btn[disabled],
@@ -213,6 +294,9 @@ image {
   padding: 3px 3px !important;
   padding-top: calc(3px + constant(safe-area-inset-top)) !important;
   padding-top: calc(3px + env(safe-area-inset-top)) !important;
+  background: var(--bg-deep) !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-shadow: none !important;
 
   .uni-page-head-hd,
   .uni-page-head-bd,
@@ -223,6 +307,16 @@ image {
   .uni-page-head__title {
     line-height: 32px !important;
     font-size: 15px !important;
+    color: var(--ink) !important;
+  }
+
+  /* 返回箭头默认是深色 svg，暗底下会看不见 */
+  .uni-page-head-btn {
+    color: var(--ink) !important;
+  }
+
+  .uni-page-head .uni-btn-icon {
+    color: var(--ink) !important;
   }
 }
 
@@ -234,7 +328,7 @@ image {
 }
 /* #endif */
 
-/* ---------------- H5 底部 tabbar 字号 ----------------
+/* ---------------- H5 底部 tabbar ----------------
  *
  * uni-app H5 默认 label 字号 10px、整条高度 50px，对小朋友偏小。
  * 字号放大到 18px，同时把整条高度加高到 62px、图标放大，
@@ -242,26 +336,37 @@ image {
  * 小程序端原生 tabbar 不受此样式影响（由系统渲染）。
  */
 /* #ifdef H5 */
-.uni-tabbar .uni-tabbar__label {
-  font-size: 18px !important;
-  line-height: 22px !important;
-  margin-top: 2px !important;
-}
+.uni-tabbar {
+  background: var(--card) !important;
+  border-top: 1px solid var(--line) !important;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.32) !important;
 
-.uni-tabbar .uni-tabbar__item {
-  padding: 6px 0 8px !important;
-  box-sizing: border-box !important;
-}
+  &::before {
+    display: none !important;
+    background: transparent !important;
+  }
 
-.uni-tabbar .uni-tabbar__icon {
-  width: 26px !important;
-  height: 26px !important;
-  margin-top: 0 !important;
-}
+  .uni-tabbar__label {
+    font-size: 18px !important;
+    line-height: 22px !important;
+    margin-top: 2px !important;
+  }
 
-.uni-tabbar .uni-tabbar__icon img {
-  width: 100% !important;
-  height: 100% !important;
+  .uni-tabbar__item {
+    padding: 6px 0 8px !important;
+    box-sizing: border-box !important;
+  }
+
+  .uni-tabbar__icon {
+    width: 26px !important;
+    height: 26px !important;
+    margin-top: 0 !important;
+  }
+
+  .uni-tabbar__icon img {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 /* tabbar 自身高度 + 占位高度同步 */

@@ -65,7 +65,7 @@ function ok() {
   align-items: center;
   justify-content: center;
   padding: 0 34px;
-  background: rgba(24, 18, 46, 0.45);
+  background: var(--mask);
   backdrop-filter: blur(3px);
   animation: cd-fade 0.18s ease-out;
 }
@@ -77,13 +77,13 @@ function ok() {
 
 .cd-card {
   width: 100%;
-  background: #fff;
+  background: var(--card);
   border-radius: 22px;
   padding: 26px 20px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 18px 48px rgba(24, 18, 46, 0.22);
+  box-shadow: var(--sh-3);
   animation: cd-pop 0.26s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -106,12 +106,12 @@ function ok() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f6f4ff;
+  background: var(--card-2);
   margin-bottom: 13px;
 }
 
 .cd-icon-danger {
-  background: #fff0f3;
+  background: var(--coral-light);
 }
 
 .cd-icon {
@@ -131,7 +131,7 @@ function ok() {
 .cd-content {
   margin-top: 7px;
   font-size: 13.5px;
-  color: var(--ink-2, #6b6880);
+  color: var(--ink-2, var(--ink-2));
   text-align: center;
   line-height: 1.65;
 }
@@ -165,14 +165,14 @@ function ok() {
 }
 
 .cd-cancel {
-  background: #f3f1f9;
-  color: var(--ink-2, #6b6880);
+  background: var(--card-2);
+  color: var(--ink-2, var(--ink-2));
 }
 
 .cd-confirm {
   background: linear-gradient(135deg, #9b7bff 0%, #7c5cff 100%);
   color: #fff;
-  box-shadow: 0 5px 14px rgba(124, 92, 255, 0.32);
+  box-shadow: var(--sh-1);
 }
 
 .cd-confirm-danger {

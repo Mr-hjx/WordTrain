@@ -65,22 +65,22 @@
       <!-- 快捷入口 -->
       <view class="quick-grid">
         <view class="qcard" @tap="goInput">
-          <view class="qcard-emoji" style="background: #eef0ff">✍️</view>
+          <view class="qcard-emoji" style="background: var(--primary-soft)">✍️</view>
           <text class="qcard-title">录入单词</text>
           <text class="qcard-sub">把今天的课堂内容记进来</text>
         </view>
         <view class="qcard" @tap="goWrongbook">
-          <view class="qcard-emoji" style="background: #ffe9ed">📕</view>
+          <view class="qcard-emoji" style="background: var(--coral-light)">📕</view>
           <text class="qcard-title">错题本</text>
           <text class="qcard-sub">{{ wrongCount ? wrongCount + ' 个待巩固' : '暂时没有错题' }}</text>
         </view>
         <view class="qcard" @tap="goMedals">
-          <view class="qcard-emoji" style="background: #fff6e0">🏅</view>
+          <view class="qcard-emoji" style="background: var(--sun-light)">🏅</view>
           <text class="qcard-title">我的奖牌</text>
           <text class="qcard-sub">{{ medalText }}</text>
         </view>
         <view class="qcard" @tap="switchExam">
-          <view class="qcard-emoji" style="background: #e0fbf5">📝</view>
+          <view class="qcard-emoji" style="background: var(--mint-light)">📝</view>
           <text class="qcard-title">英语小测验</text>
           <text class="qcard-sub">10 道题，全对 10 宝石</text>
         </view>
@@ -211,7 +211,8 @@ function modeClass(m: string) {
 
 .home-top {
   padding: 4px 0 6px;
-  background: linear-gradient(135deg, #8f73ff 0%, #6b4dff 100%);
+  background: var(--grad-brand-soft);
+  border-bottom: 1px solid var(--line);
   flex-shrink: 0;
 }
 
@@ -224,10 +225,10 @@ function modeClass(m: string) {
 /* ---------- 今日卡片 ---------- */
 .today-card {
   margin-top: 12px;
-  background: #fff;
+  background: var(--card);
   border-radius: 20px;
   padding: 16px;
-  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.1);
+  box-shadow: var(--sh-1);
 }
 
 .tc-head {
@@ -260,7 +261,7 @@ function modeClass(m: string) {
   align-items: center;
   margin-top: 14px;
   padding: 12px 0;
-  background: #f8f7ff;
+  background: var(--card-2);
   border-radius: 14px;
 }
 
@@ -300,8 +301,8 @@ function modeClass(m: string) {
   margin-top: 12px;
   padding: 8px 12px;
   border-radius: 10px;
-  background: #fff7e6;
-  border: 1px solid #ffe0a3;
+  background: var(--sun-light);
+  border: 1px solid rgba(255, 196, 66, 0.32);
 }
 
 .tcf-text {
@@ -309,7 +310,7 @@ function modeClass(m: string) {
   text-align: center;
   font-size: 12px;
   line-height: 1.5;
-  color: #a86a00;
+  color: var(--sun-ink);
 }
 
 .tce-text {
@@ -337,7 +338,7 @@ function modeClass(m: string) {
   display: flex;
   align-items: center;
   padding: 5px 10px;
-  background: #f3f0ff;
+  background: var(--primary-soft);
   border-radius: 999px;
 }
 
@@ -353,7 +354,7 @@ function modeClass(m: string) {
 }
 
 .wchip-more {
-  background: #ede8ff;
+  background: var(--primary-light);
 }
 
 /* ---------- 快捷入口 ---------- */
@@ -366,10 +367,10 @@ function modeClass(m: string) {
 
 .qcard {
   width: calc(50% - 5px);
-  background: #fff;
+  background: var(--card);
   border-radius: 18px;
   padding: 14px;
-  box-shadow: 0 4px 14px rgba(124, 92, 255, 0.07);
+  box-shadow: var(--sh-1);
 }
 
 .qcard:active {
@@ -426,7 +427,7 @@ function modeClass(m: string) {
 }
 
 .empty-box {
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 28px 16px;
   display: flex;
@@ -455,10 +456,10 @@ function modeClass(m: string) {
 .rec-item {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--card);
   border-radius: 14px;
   padding: 11px 13px;
-  box-shadow: 0 2px 10px rgba(124, 92, 255, 0.05);
+  box-shadow: var(--sh-1);
 }
 
 .rec-badge {
@@ -474,16 +475,16 @@ function modeClass(m: string) {
 }
 
 .rec-badge.is-daily {
-  background: #eef0ff;
-  color: #5b3fd6;
+  background: var(--primary-soft);
+  color: var(--primary-ink);
 }
 .rec-badge.is-wrong {
-  background: #ffe9ed;
-  color: #d94b64;
+  background: var(--coral-light);
+  color: var(--coral-ink);
 }
 .rec-badge.is-exam {
-  background: #e0fbf5;
-  color: #12907a;
+  background: var(--mint-light);
+  color: var(--mint-ink);
 }
 
 .rec-body {
@@ -525,7 +526,7 @@ function modeClass(m: string) {
 
 /* ---------- 词库 ---------- */
 .bank-group {
-  background: #fff;
+  background: var(--card);
   border-radius: 14px;
   padding: 12px 13px;
   margin-bottom: 8px;
@@ -566,7 +567,7 @@ function modeClass(m: string) {
 
 .bg-word {
   padding: 3px 9px;
-  background: #f6f4ff;
+  background: var(--card-2);
   border-radius: 999px;
   font-size: 12px;
   color: var(--ink-2);

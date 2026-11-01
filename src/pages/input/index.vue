@@ -222,10 +222,10 @@ onLoad(() => {
 }
 
 .add-box {
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 13px;
-  box-shadow: 0 2px 12px rgba(124, 92, 255, 0.06);
+  box-shadow: var(--sh-1);
 }
 
 .add-row {
@@ -237,7 +237,7 @@ onLoad(() => {
   flex: 1;
   height: 42px;
   padding: 0 12px;
-  background: #f8f7ff;
+  background: var(--card-2);
   border-radius: 12px;
   font-size: 14px;
   color: var(--ink);
@@ -270,7 +270,7 @@ onLoad(() => {
 }
 
 .bulk-box {
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 13px;
 }
@@ -279,7 +279,7 @@ onLoad(() => {
   width: 100%;
   height: 90px;
   padding: 11px 12px;
-  background: #f8f7ff;
+  background: var(--card-2);
   border-radius: 12px;
   font-size: 14px;
   color: var(--ink);
@@ -316,12 +316,12 @@ onLoad(() => {
 
 .sec-clear {
   font-size: 13px;
-  color: #d94b64;
+  color: var(--coral-ink);
   padding: 4px 8px;
 }
 
 .empty-box {
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 36px 16px;
   display: flex;
@@ -341,7 +341,7 @@ onLoad(() => {
 }
 
 .word-list {
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 4px 0;
 }
@@ -350,7 +350,7 @@ onLoad(() => {
   display: flex;
   align-items: center;
   padding: 11px 13px;
-  border-bottom: 1px solid #f6f4ff;
+  border-bottom: 1px solid var(--card-2);
 }
 
 .word-item:last-child {
@@ -389,10 +389,10 @@ onLoad(() => {
   line-height: 32px;
   padding: 0 14px;
   margin-left: 8px;
-  background: #fff0f3;
+  background: var(--coral-light);
   border-radius: 8px;
   font-size: 13px;
-  color: #d94b64;
+  color: var(--coral-ink);
   border: none;
 }
 
@@ -401,7 +401,7 @@ onLoad(() => {
 }
 
 .ph {
-  color: #b9b4cc;
+  color: var(--ink-3);
 }
 
 .bottom-space {
@@ -422,8 +422,8 @@ onLoad(() => {
 }
 
 .foot-btn[disabled] {
-  background: #eae7f5;
-  color: #a9a4bc;
+  background: var(--line);
+  color: var(--ink-3);
   box-shadow: none;
 }
 </style>

@@ -237,10 +237,10 @@ onShow(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
+  background: var(--card);
   border-radius: 22px;
   padding: 22px 16px 18px;
-  box-shadow: 0 8px 26px rgba(124, 92, 255, 0.12);
+  box-shadow: var(--sh-1);
 }
 
 .hero-emoji {
@@ -266,7 +266,7 @@ onShow(() => {
 
 .gem-card {
   margin-top: 12px;
-  background: linear-gradient(130deg, #fffdf5 0%, #fff4d6 100%);
+  background: linear-gradient(130deg, #fffdf5 0%, var(--sun-light) 100%);
   border: 2px solid #ffe08a;
   border-radius: 18px;
   padding: 15px 17px;
@@ -278,7 +278,7 @@ onShow(() => {
 .gc-title {
   display: block;
   font-size: 12px;
-  color: #a67c00;
+  color: var(--sun-ink);
   font-weight: 700;
 }
 
@@ -291,7 +291,7 @@ onShow(() => {
 .gc-num {
   font-size: 32px;
   font-weight: 800;
-  color: #e09400;
+  color: var(--sun-ink);
   line-height: 1;
 }
 
@@ -309,23 +309,23 @@ onShow(() => {
 .gcd-text {
   font-size: 12px;
   font-weight: 700;
-  color: #a67c00;
+  color: var(--sun-ink);
 }
 
 .gcd-raw {
   margin-top: 2px;
   font-size: 12px;
-  color: #c9a44d;
+  color: var(--sun-ink);
 }
 
 .tip-card {
   display: flex;
   align-items: center;
   margin-top: 12px;
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 13px 14px;
-  box-shadow: 0 3px 14px rgba(124, 92, 255, 0.06);
+  box-shadow: var(--sh-1);
 }
 
 .tc-icon {
@@ -378,13 +378,13 @@ onShow(() => {
 
 /* ================= 考试首页 ================= */
 .intro-card {
-  background: linear-gradient(150deg, #8f73ff 0%, #6b4dff 100%);
+  background: var(--grad-brand);
   border-radius: 22px;
   padding: 20px 18px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(107, 77, 255, 0.26);
+  box-shadow: var(--sh-accent);
 }
 
 .ic-emoji {
@@ -432,16 +432,16 @@ onShow(() => {
 }
 
 .icr-badge.perfect {
-  background: #ffe08a;
-  color: #8a5b00;
+  background: #ffd469;
+  color: #402a00;
 }
 .icr-badge.good {
-  background: #d6f7ee;
-  color: #10806d;
+  background: #7df0da;
+  color: #06342b;
 }
 .icr-badge.bad {
-  background: rgba(255, 255, 255, 0.25);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.92);
+  color: #3b2490;
 }
 
 .icr-text {
@@ -460,13 +460,13 @@ onShow(() => {
 
 .st-box {
   flex: 1;
-  background: #fff;
+  background: var(--card);
   border-radius: 15px;
   padding: 13px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 3px 12px rgba(124, 92, 255, 0.06);
+  box-shadow: var(--sh-1);
 }
 
 .stb-num {
@@ -495,8 +495,8 @@ onShow(() => {
 }
 
 .start-btn[disabled] {
-  background: #eae7f5;
-  color: #a9a4bc;
+  background: var(--line);
+  color: var(--ink-3);
   box-shadow: none;
 }
 
@@ -529,10 +529,10 @@ onShow(() => {
 .hist-item {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--card);
   border-radius: 15px;
   padding: 11px 13px;
-  box-shadow: 0 3px 12px rgba(124, 92, 255, 0.05);
+  box-shadow: var(--sh-1);
 }
 
 .hi-score {
@@ -546,13 +546,13 @@ onShow(() => {
 }
 
 .hi-score.is-top {
-  background: #fff4d6;
+  background: var(--sun-light);
 }
 .hi-score.is-good {
-  background: #e0fbf5;
+  background: var(--mint-light);
 }
 .hi-score.is-low {
-  background: #f2f0f8;
+  background: var(--card-2);
 }
 
 .his-num {
@@ -562,13 +562,13 @@ onShow(() => {
 }
 
 .hi-score.is-top .his-num {
-  color: #e09400;
+  color: var(--sun-ink);
 }
 .hi-score.is-good .his-num {
-  color: #10806d;
+  color: var(--mint-ink);
 }
 .hi-score.is-low .his-num {
-  color: #8a849f;
+  color: var(--ink-3);
 }
 
 .his-total {

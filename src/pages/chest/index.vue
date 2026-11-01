@@ -215,7 +215,7 @@ onLoad(() => {
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(170deg, #f8f6ff 0%, #efeaff 100%);
+  background: linear-gradient(170deg, var(--bg) 0%, var(--bg-deep) 100%);
 }
 
 /* ================= 开箱阶段 ================= */
@@ -283,13 +283,13 @@ onLoad(() => {
 }
 
 .hero {
-  background: #fff;
+  background: var(--card);
   border-radius: 22px;
   padding: 20px 16px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 8px 26px rgba(124, 92, 255, 0.12);
+  box-shadow: var(--sh-1);
 }
 
 .hero-emoji {
@@ -311,7 +311,7 @@ onLoad(() => {
   width: 100%;
   margin-top: 16px;
   padding: 12px 0;
-  background: #f8f7ff;
+  background: var(--card-2);
   border-radius: 14px;
 }
 
@@ -380,15 +380,15 @@ onLoad(() => {
 .medal-card {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 12px 14px;
   margin-bottom: 9px;
-  box-shadow: 0 4px 16px rgba(124, 92, 255, 0.09);
+  box-shadow: var(--sh-1);
 }
 
 .medal-card.big {
-  background: linear-gradient(120deg, #fffbee 0%, #fff4d6 100%);
+  background: linear-gradient(120deg, #fffbee 0%, var(--sun-light) 100%);
   border: 2px solid #ffe08a;
 }
 
@@ -423,23 +423,23 @@ onLoad(() => {
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 999px;
-  background: #ede8ff;
+  background: var(--primary-light);
   color: var(--primary-dark);
   flex-shrink: 0;
 }
 
 .medal-card.big .mc-tag {
   background: #ffe08a;
-  color: #8a5b00;
+  color: var(--sun-ink);
 }
 
 /* ---------- 进度 ---------- */
 .progress-card {
   margin-top: 8px;
-  background: #fff;
+  background: var(--card);
   border-radius: 18px;
   padding: 14px 16px;
-  box-shadow: 0 4px 16px rgba(124, 92, 255, 0.07);
+  box-shadow: var(--sh-1);
 }
 
 .pc-head {
@@ -463,7 +463,7 @@ onLoad(() => {
 .pc-bar-wrap {
   margin-top: 10px;
   height: 9px;
-  background: #f0edfa;
+  background: var(--primary-soft);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -488,10 +488,10 @@ onLoad(() => {
   display: flex;
   align-items: center;
   margin-top: 12px;
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 13px 14px;
-  box-shadow: 0 3px 14px rgba(124, 92, 255, 0.06);
+  box-shadow: var(--sh-1);
 }
 
 .allright-tip {
@@ -506,7 +506,7 @@ onLoad(() => {
 .at-text {
   font-size: 14px;
   font-weight: 700;
-  color: #d98a00;
+  color: var(--sun-ink);
 }
 
 .wt-icon {

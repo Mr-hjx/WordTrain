@@ -1,33 +1,34 @@
 /**
- * 设计变量
+ * 设计变量（SCSS 版）
  *
- * ⚠️ 双声明 `page, :root`：小程序端不支持 `:root`，H5 端不支持 `page`，
- *    两者都写才能双端一致。
+ * ⚠️ 页面样式请优先使用 base.scss 里的 CSS 变量 var(--xxx)：
+ *    CSS 变量可被主题覆盖，SCSS 变量在编译期就被固化，无法换肤。
+ *    本文件仅保留给动画 / 少量需要编译期计算的场景。
  *
  * 尺寸单位刻意使用 px（不用 rpx）：整套布局是按 iPhone SE 375×667
  * 精调出的「一屏铺满、不出滚动条」方案，rpx 会按 750 基准缩放从而破坏版式。
  */
 
-/* 主色 */
-$primary: #7c5cff;
-$primary-dark: #5b3fd6;
-$primary-light: #a58cff;
+/* 主色（暗色主题基准） */
+$primary: #9b7dff;
+$primary-dark: #b39cff;
+$primary-light: #2a2350;
 
 /* 辅助色 */
-$mint: #2ed3b7;
-$sky: #4da6ff;
-$sun: #ffb109;
-$coral: #ff6b81;
-$pink: #ff6b9d;
-$orange: #ff9f43;
+$mint: #3edfc0;
+$sky: #5fb0ff;
+$sun: #ffc442;
+$coral: #ff7e93;
+$pink: #ff8fb5;
+$orange: #ffa95c;
 
 /* 中性色 */
-$text: #2c2a3a;
-$text-sub: #6b6880;
-$text-muted: #9e9bb0;
-$line: #eae7f5;
-$bg: #f6f4ff;
-$card: #ffffff;
+$text: #f3f1fb;
+$text-sub: #b8b2ce;
+$text-muted: #8c86a6;
+$line: #2e2949;
+$bg: #12101e;
+$card: #1c1930;
 
 /* 圆角 */
 $r-sm: 10px;
@@ -37,9 +38,9 @@ $r-xl: 28px;
 $r-full: 999px;
 
 /* 阴影 */
-$sh-sm: 0 2px 8px rgba(124, 92, 255, 0.08);
-$sh-md: 0 6px 20px rgba(124, 92, 255, 0.12);
-$sh-lg: 0 14px 40px rgba(124, 92, 255, 0.18);
+$sh-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+$sh-md: 0 6px 18px rgba(0, 0, 0, 0.5);
+$sh-lg: 0 14px 36px rgba(0, 0, 0, 0.6);
 
 /* 字号 */
 $fs-xs: 12px;

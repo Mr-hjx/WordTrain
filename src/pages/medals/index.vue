@@ -134,7 +134,7 @@ onShow(() => {
 .m-head {
   flex-shrink: 0;
   padding: 14px 16px 16px;
-  background: linear-gradient(150deg, #8f73ff 0%, #6b4dff 100%);
+  background: var(--grad-brand);
 }
 
 .mh-gems {
@@ -222,7 +222,7 @@ onShow(() => {
 .mh-bar-wrap {
   margin-top: 12px;
   height: 8px;
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -238,9 +238,9 @@ onShow(() => {
 .tabs {
   flex-shrink: 0;
   display: flex;
-  background: #fff;
+  background: var(--card);
   padding: 0 14px;
-  box-shadow: 0 2px 10px rgba(124, 92, 255, 0.06);
+  box-shadow: var(--sh-1);
 }
 
 .tab {
@@ -281,13 +281,13 @@ onShow(() => {
 
 .medal-cell {
   width: calc(25% - 7.5px);
-  background: #fff;
+  background: var(--card);
   border-radius: 14px;
   padding: 10px 6px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(124, 92, 255, 0.05);
+  box-shadow: var(--sh-1);
 }
 
 .medal-cell:active {
@@ -301,8 +301,8 @@ onShow(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f2f0f8;
-  border: 2px solid #e6e2f2;
+  background: var(--card-2);
+  border: 2px solid var(--line-strong);
 }
 
 .medal-cell.unlocked .cell-emoji-wrap {
@@ -334,7 +334,7 @@ onShow(() => {
   width: 100%;
   height: 5px;
   margin-top: 5px;
-  background: #f0edfa;
+  background: var(--primary-soft);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -342,7 +342,7 @@ onShow(() => {
 .cp-bar {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #d9d2f5 0%, #b9aef0 100%);
+  background: linear-gradient(90deg, rgba(155, 125, 255, 0.45) 0%, var(--primary) 100%);
 }
 
 .cell-time {
@@ -354,7 +354,7 @@ onShow(() => {
 /* ---------- 规则 ---------- */
 .m-tip {
   margin-top: 18px;
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 14px 16px;
 }
@@ -385,7 +385,7 @@ onShow(() => {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(43, 37, 64, 0.45);
+  background: var(--mask);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -395,7 +395,7 @@ onShow(() => {
 .modal-box {
   width: 76%;
   max-width: 300px;
-  background: #fff;
+  background: var(--card);
   border-radius: 22px;
   padding: 22px 18px 18px;
   display: flex;
@@ -410,8 +410,8 @@ onShow(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f2f0f8;
-  border: 3px solid #e6e2f2;
+  background: var(--card-2);
+  border: 3px solid var(--line-strong);
 }
 
 .modal-emoji {
@@ -429,7 +429,7 @@ onShow(() => {
 .modal-type {
   margin-top: 3px;
   padding: 2px 9px;
-  background: #ede8ff;
+  background: var(--primary-light);
   color: var(--primary-dark);
   font-size: 12px;
   font-weight: 700;

@@ -365,7 +365,7 @@ onUnload(() => {
 .prac-top {
   flex-shrink: 0;
   padding: 8px 0 8px;
-  background: linear-gradient(135deg, #8f73ff 0%, #6b4dff 100%);
+  background: var(--grad-brand);
 }
 
 .prac-progress {
@@ -394,11 +394,11 @@ onUnload(() => {
 }
 
 .pp-dot.is-done {
-  background: #2ed3b7;
+  background: var(--mint);
 }
 
 .pp-dot.is-cur {
-  background: #fff;
+  background: var(--card);
   transform: scale(1.06);
 }
 
@@ -464,7 +464,7 @@ onUnload(() => {
 
 .type-pill {
   padding: 3px 10px;
-  background: #ede8ff;
+  background: var(--primary-light);
   color: var(--primary-dark);
   font-size: 12px;
   font-weight: 700;
@@ -479,13 +479,13 @@ onUnload(() => {
 }
 
 .mode-pill.mode-wrong {
-  background: #ffe9ed;
-  color: #d94b64;
+  background: var(--coral-light);
+  color: var(--coral-ink);
 }
 
 .mode-pill.mode-exam {
-  background: #e0fbf5;
-  color: #12907a;
+  background: var(--mint-light);
+  color: var(--mint-ink);
 }
 
 .qarea {
@@ -529,14 +529,14 @@ onUnload(() => {
   flex: 1;
   max-height: 58px;
   min-height: 42px;
-  background: #fff;
+  background: var(--card);
   border-radius: 14px;
   border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 8px;
-  box-shadow: 0 3px 12px rgba(124, 92, 255, 0.08);
+  box-shadow: var(--sh-1);
   transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
@@ -558,17 +558,17 @@ onUnload(() => {
 
 .mcard.sel {
   border-color: var(--primary);
-  background: #f3f0ff;
+  background: var(--primary-soft);
   transform: scale(1.03);
 }
 
 .mcard.done {
-  background: #e0fbf5;
-  border-color: #2ed3b7;
+  background: var(--mint-light);
+  border-color: var(--mint);
 }
 
 .mcard.done .mcard-text {
-  color: #10806d;
+  color: var(--mint-ink);
 }
 
 .mcard.shake {
@@ -580,7 +580,7 @@ onUnload(() => {
   margin-left: 74px;
   margin-top: -18px;
   font-size: 12px;
-  color: #12907a;
+  color: var(--mint-ink);
   font-weight: 800;
 }
 
@@ -603,7 +603,7 @@ onUnload(() => {
 .match-hint text {
   font-size: 14px;
   font-weight: 700;
-  color: #d94b64;
+  color: var(--coral-ink);
 }
 
 /* ================= 拼写题 ================= */
@@ -654,8 +654,8 @@ onUnload(() => {
   width: 34px;
   height: 42px;
   border-radius: 10px;
-  background: #fff;
-  border: 2px dashed #d9d3f0;
+  background: var(--card);
+  border: 2px dashed var(--line-strong);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -664,7 +664,7 @@ onUnload(() => {
 .slot.filled {
   border-style: solid;
   border-color: var(--primary);
-  background: #f3f0ff;
+  background: var(--primary-soft);
 }
 
 .slot-ch {
@@ -688,8 +688,8 @@ onUnload(() => {
   height: 46px;
   padding: 0 8px;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 4px 14px rgba(124, 92, 255, 0.12);
+  background: var(--card);
+  box-shadow: var(--sh-1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -748,9 +748,9 @@ onUnload(() => {
   align-items: center;
   margin-top: 10px;
   padding: 7px 16px;
-  background: linear-gradient(135deg, #8f73ff 0%, #6b4dff 100%);
+  background: var(--grad-brand);
   border-radius: 999px;
-  box-shadow: 0 5px 16px rgba(107, 77, 255, 0.28);
+  box-shadow: var(--sh-accent);
 }
 
 .speak-btn:active {
@@ -790,10 +790,10 @@ onUnload(() => {
   display: flex;
   align-items: center;
   padding: 0 12px;
-  background: #fff;
+  background: var(--card);
   border-radius: 15px;
   border: 2px solid transparent;
-  box-shadow: 0 3px 14px rgba(124, 92, 255, 0.08);
+  box-shadow: var(--sh-1);
   transition: border-color 0.18s ease, background 0.18s ease, transform 0.14s ease;
 }
 
@@ -805,7 +805,7 @@ onUnload(() => {
   width: 26px;
   height: 26px;
   border-radius: 8px;
-  background: #f3f0ff;
+  background: var(--primary-soft);
   color: var(--primary-dark);
   font-size: 13px;
   font-weight: 800;
@@ -827,17 +827,17 @@ onUnload(() => {
 }
 
 .opt.right {
-  border-color: #2ed3b7;
-  background: #e0fbf5;
+  border-color: var(--mint);
+  background: var(--mint-light);
 }
 
 .opt.right .opt-idx {
-  background: #2ed3b7;
-  color: #fff;
+  background: var(--mint);
+  color: var(--ink-on-accent);
 }
 
 .opt.right .opt-text {
-  color: #10806d;
+  color: var(--mint-ink);
 }
 
 .opt.dim {
@@ -847,12 +847,12 @@ onUnload(() => {
 .opt-tick {
   font-size: 17px;
   font-weight: 800;
-  color: #12907a;
+  color: var(--mint-ink);
   flex-shrink: 0;
 }
 
 .opt.dim .opt-tick {
-  color: #a9a4bc;
+  color: var(--ink-3);
 }
 
 /* ---------- 空态 ---------- */
@@ -889,15 +889,15 @@ onUnload(() => {
 }
 
 .feedback.fb-idle {
-  background: #efeaf9;
+  background: var(--card-2);
 }
 
 .feedback.fb-right {
-  background: #e0fbf5;
+  background: var(--mint-light);
 }
 
 .feedback.fb-wrong {
-  background: #ffe9ed;
+  background: var(--coral-light);
 }
 
 .fb-icon {
@@ -915,11 +915,11 @@ onUnload(() => {
 }
 
 .fb-right .fb-text {
-  color: #10806d;
+  color: var(--mint-ink);
 }
 
 .fb-wrong .fb-text {
-  color: #d94b64;
+  color: var(--coral-ink);
 }
 
 .next-btn {
@@ -929,8 +929,8 @@ onUnload(() => {
 }
 
 .next-btn[disabled] {
-  background: #eae7f5;
-  color: #a9a4bc;
+  background: var(--line);
+  color: var(--ink-3);
   box-shadow: none;
 }
 </style>

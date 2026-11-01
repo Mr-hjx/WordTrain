@@ -158,7 +158,7 @@ onShow(() => {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  background: linear-gradient(140deg, #ff8fa3 0%, #ff6b81 100%);
+  background: linear-gradient(140deg, #c2495f 0%, #96354a 100%);
 }
 
 .wh-left {
@@ -225,10 +225,10 @@ onShow(() => {
 .wb-item {
   display: flex;
   align-items: center;
-  background: #fff;
+  background: var(--card);
   border-radius: 15px;
   padding: 12px 13px;
-  box-shadow: 0 3px 12px rgba(124, 92, 255, 0.06);
+  box-shadow: var(--sh-1);
 }
 
 .wi-emoji {
@@ -257,8 +257,8 @@ onShow(() => {
 .wi-count {
   margin-left: 8px;
   padding: 1px 7px;
-  background: #ffe9ed;
-  color: #d94b64;
+  background: var(--coral-light);
+  color: var(--coral-ink);
   font-size: 12px;
   font-weight: 700;
   border-radius: 999px;
@@ -283,17 +283,17 @@ onShow(() => {
   padding: 5px 7px;
   font-size: 13px;
   border-radius: 9px;
-  background: #f6f4ff;
+  background: var(--card-2);
 }
 
 .wi-del {
-  color: #d94b64;
+  color: var(--coral-ink);
 }
 
 /* ---------- 提示 ---------- */
 .tips {
   margin-top: 16px;
-  background: #fff;
+  background: var(--card);
   border-radius: 16px;
   padding: 14px 16px;
 }
@@ -334,8 +334,8 @@ onShow(() => {
 }
 
 .foot-btn[disabled] {
-  background: #eae7f5;
-  color: #a9a4bc;
+  background: var(--line);
+  color: var(--ink-3);
   box-shadow: none;
 }
 

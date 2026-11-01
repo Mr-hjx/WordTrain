@@ -52,15 +52,15 @@
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "单词小火车",
-    "navigationBarBackgroundColor": "#7C5CFF",
-    "backgroundColor": "#F6F4FF",
+    "navigationBarBackgroundColor": "#141122",
+    "backgroundColor": "#12101E",
     "backgroundTextStyle": "light"
   },
   "tabBar": {
-    "color": "#9E9BB0",
-    "selectedColor": "#7C5CFF",
-    "backgroundColor": "#FFFFFF",
-    "borderStyle": "white",
+    "color": "#8C86A6",
+    "selectedColor": "#9B7DFF",
+    "backgroundColor": "#1C1930",
+    "borderStyle": "black",
     "list": [
       {
         "pagePath": "pages/home/index",
