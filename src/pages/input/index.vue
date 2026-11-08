@@ -24,19 +24,59 @@
       </view>
 
       <!-- 批量粘贴（可折叠） -->
-      <view class="bulk-toggle" @click="showBulk = !showBulk">
+      <view class="bulk-toggle" @click="toggleBulk">
         <text class="bt-text">批量粘贴</text>
         <text class="bt-arrow">{{ showBulk ? '▲' : '▼' }}</text>
       </view>
       <view v-if="showBulk" class="bulk-box">
-        <textarea
-          class="bulk-area"
-          v-model="bulkText"
-          placeholder="apple 苹果&#10;banana 香蕉&#10;cat 小猫"
-          placeholder-class="ph"
-          :maxlength="-1"
-        />
-        <button class="btn btn-mint bulk-btn" @click="addBulk">批量添加</button>
+        <!-- 第一步：粘贴 -->
+        <template v-if="!parsed">
+          <textarea
+            class="bulk-area"
+            v-model="bulkText"
+            placeholder="直接贴一整段也可以：&#10;wash洗 my我的 your你的 thank you谢谢"
+            placeholder-class="ph"
+            :maxlength="-1"
+          />
+          <text class="bulk-hint">连续粘贴 / 换行 / 逗号顿号分隔均可，中英顺序不限</text>
+          <button class="btn btn-mint bulk-btn" @click="parseBulk">识别并预览</button>
+        </template>
+
+        <!-- 第二步：预览确认 -->
+        <template v-else>
+          <view class="pv-head">
+            <text class="pv-count">识别到 {{ parsed.pairs.length }} 条，新增 {{ newCount }} 条</text>
+            <text v-if="skipCount" class="pv-skip">{{ skipCount }} 条已存在</text>
+          </view>
+
+          <scroll-view class="pv-list" scroll-y>
+            <view
+              v-for="(r, i) in previewRows"
+              :key="i"
+              class="pv-item"
+              :class="{ 'pv-item-dim': r.exists }"
+            >
+              <text class="pv-en">{{ r.en }}</text>
+              <text class="pv-zh">{{ r.zh }}</text>
+              <text v-if="r.exists" class="pv-tag">已存在</text>
+            </view>
+          </scroll-view>
+
+          <view v-if="parsed.invalid.length" class="pv-warn">
+            <text class="pv-warn-text">跳过 {{ parsed.invalid.length }} 条无法识别：{{ invalidPreview }}</text>
+          </view>
+
+          <view class="pv-actions">
+            <button class="btn btn-ghost pv-btn pv-cancel" @click="cancelPreview">返回修改</button>
+            <button
+              class="btn btn-mint pv-btn"
+              :disabled="!newCount"
+              @click="confirmBulk"
+            >
+              {{ newCount ? `确认添加 ${newCount} 条` : '没有可新增的词' }}
+            </button>
+          </view>
+        </template>
       </view>
     </view>
 
@@ -89,6 +129,7 @@ import { onLoad } from '@dcloudio/uni-app'
 import { useBank } from '@/composables/useBank'
 import { useQuizSessionSingleton } from '@/composables/useQuizSession'
 import { todayStr } from '@/utils/date'
+import { parseWordPairs, type ParseResult } from '@/utils/parseWords'
 
 const { appendWords, setWordsByDate, removeWord, reload, dates, getWordsByDate, allLearnedWords } = useBank()
 const session = useQuizSessionSingleton()
@@ -117,33 +158,64 @@ function addOne() {
   zhInput.value = ''
 }
 
-function addBulk() {
+/** 批量识别结果（null = 还在粘贴阶段） */
+const parsed = ref<ParseResult | null>(null)
+
+/** 已存在的英文集合（小写），用于预览时标记「已存在」 */
+const existingEn = computed(() => new Set(allWords.value.map((w) => String(w.en).toLowerCase())))
+
+const previewRows = computed(() =>
+  parsed.value
+    ? parsed.value.pairs.map((p) => ({ ...p, exists: existingEn.value.has(p.en.toLowerCase()) }))
+    : []
+)
+const skipCount = computed(() => previewRows.value.filter((r) => r.exists).length)
+const newCount = computed(() => previewRows.value.length - skipCount.value)
+const invalidPreview = computed(() => {
+  if (!parsed.value) return ''
+  const list = parsed.value.invalid.slice(0, 3).map((i) => i.text)
+  return parsed.value.invalid.length > 3 ? list.join('、') + ' …' : list.join('、')
+})
+
+function toggleBulk() {
+  showBulk.value = !showBulk.value
+  if (!showBulk.value) parsed.value = null
+}
+
+function parseBulk() {
   const raw = bulkText.value.trim()
   if (!raw) {
     uni.showToast({ title: '请先粘贴内容', icon: 'none' })
     return
   }
-  const lines = raw.split(/\n+/).map((l) => l.trim()).filter(Boolean)
-  const list: { en: string; zh: string }[] = []
-
-  lines.forEach((line) => {
-    const m = line.split(/[\s,，\t]+/).filter(Boolean)
-    if (!m.length) return
-    const en = m[0]
-    const zh = m.slice(1).join(' ')
-    if (!/^[a-zA-Z]/.test(en)) return
-    list.push({ en, zh })
-  })
-
-  if (!list.length) {
-    uni.showToast({ title: '没识别出单词，检查下格式', icon: 'none' })
+  const r = parseWordPairs(raw)
+  if (!r.pairs.length) {
+    uni.showToast({
+      title: r.invalid.length ? '没识别出「英文+中文」，检查下格式' : '没识别出单词',
+      icon: 'none'
+    })
     return
   }
+  parsed.value = r
+}
 
+function cancelPreview() {
+  parsed.value = null
+}
+
+function confirmBulk() {
+  const r = parsed.value
+  if (!r) return
+  const list = r.pairs.filter((p) => !existingEn.value.has(p.en.toLowerCase()))
+  if (!list.length) {
+    uni.showToast({ title: '这些词都已经存在了', icon: 'none' })
+    return
+  }
   const n = appendWords(todayStr(), list)
   bulkText.value = ''
+  parsed.value = null
   showBulk.value = false
-  uni.showToast({ title: `成功添加 ${n} 个`, icon: 'success' })
+  uni.showToast({ title: `已添加 ${n} 个单词`, icon: 'success' })
 }
 
 /** 删除/清空 二次确认弹窗状态 */
@@ -291,6 +363,116 @@ onLoad(() => {
   height: 42px;
   margin-top: 10px;
   font-size: 15px;
+}
+
+.bulk-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+
+/* ---------- 识别预览 ---------- */
+.pv-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px 8px;
+}
+
+.pv-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pv-skip {
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.pv-list {
+  max-height: 210px;
+  background: var(--card-2);
+  border-radius: 12px;
+  padding: 4px 0;
+}
+
+.pv-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--card-line);
+}
+
+.pv-item:last-child {
+  border-bottom: none;
+}
+
+.pv-item-dim {
+  opacity: 0.5;
+}
+
+.pv-en {
+  flex-shrink: 0;
+  max-width: 55%;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pv-zh {
+  flex: 1;
+  min-width: 0;
+  margin-left: 10px;
+  font-size: 14px;
+  color: var(--ink-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pv-tag {
+  flex-shrink: 0;
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 7px;
+  background: var(--card-3);
+  font-size: 14px;
+  color: var(--ink-3);
+}
+
+.pv-warn {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: var(--sun-light);
+  border-radius: 10px;
+}
+
+.pv-warn-text {
+  font-size: 14px;
+  color: var(--sun-ink);
+  line-height: 1.5;
+}
+
+.pv-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.pv-btn {
+  flex: 1;
+  height: 42px;
+  font-size: 15px;
+}
+
+.pv-cancel {
+  flex: 0 0 104px;
 }
 
 /* ---------- 列表 ---------- */
